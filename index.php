@@ -22,43 +22,54 @@ $querys->QueryTable('select EMAIL from USUARIOS');
 $aErrores = array();
 $aMensajes = array();
 
-if (!empty($_POST)) {
+
+$name = $_POST['name'];
+$email = $_POST['email'];
+$password = $_POST['password'];
+
+$querys->NewUser($name,$email,$password);
+
+// if (!empty($_POST)) {
+    
+  
+
+//     if (isset($name) && isset($email) && isset($password)) {
+
+//         if (empty($_POST['name'])) {
+//             $aErrores[] = "Debe especificar el nombre";
+//         } else {
+//             $aMensajes[] = "Nombre: [" . $_POST['name'] . "]";
+//         }
+
+//         if (empty($_POST['email'])) {
+//             $aErrores[] = "Debe ingresar un email";
+//         } else {
+//             $aMensajes[] = "Nombre: [" . $_POST['email'] . "]";
+//         }
+//         if (empty($_POST['password'])) {
+//             $aErrores[] = "Debe ingresar una contraseña";
+//         } else {
+//             $aMensajes[] = "Nombre: [" . $_POST['password'] . "]";
+//         }
+//     }
 
 
-    if (isset($_POST['name']) && isset($_POST['email']) && isset($_POST['password'])) {
 
-        if (empty($_POST['name'])) {
-            $aErrores[] = "Debe especificar el nombre";
-        } else {
-            $aMensajes[] = "Nombre: [" . $_POST['name'] . "]";
-        }
+// } else {
+//     echo '<p>No se obtuvieron los datos</p>';
+// }
 
-        if (empty($_POST['email'])) {
-            $aErrores[] = "Debe ingresar un email";
-        } else {
-            $aMensajes[] = "Nombre: [" . $_POST['email'] . "]";
-        }
-        if (empty($_POST['password'])) {
-            $aErrores[] = "Debe ingresar una contraseña";
-        } else {
-            $aMensajes[] = "Nombre: [" . $_POST['password'] . "]";
-        }
-    }
-} else {
-    echo '<p>No se obtuvieron los datos</p>';
-}
+// if (count($aErrores)) {
+//     // echo "<p>ERRORES ENCONTRADOS:</p>";
 
-if (count($aErrores)) {
-    // echo "<p>ERRORES ENCONTRADOS:</p>";
-
-    for ($contador = 0; $contador < count($aErrores); $contador++) {
-        // echo $aErrores[$contador] . "</br>";
-    }
-} else {
-    for ($contador = 0; $contador < count($aMensajes); $contador++) {
-        // echo $aMensajes[$contador] . "</br>";
-    }
-}
+//     for ($contador = 0; $contador < count($aErrores); $contador++) {
+//         // echo $aErrores[$contador] . "</br>";
+//     }
+// } else {
+//     for ($contador = 0; $contador < count($aMensajes); $contador++) {
+//         // echo $aMensajes[$contador] . "</br>";
+//     }
+// }
 
 ?>
 

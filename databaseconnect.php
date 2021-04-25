@@ -38,4 +38,17 @@ class Conexiones
          }
          
     }
+
+    public function NewUser(string $name, string $email, string $password)
+    {
+        $query = "INSERT INTO USUARIOS (NOMBRE,EMAIL,PASSWORD) VALUES (:name,:email,:password)";
+
+        $insert = $this->conexion->prepare($query);
+
+        $insert->bindParam(':name',$name,PDO::PARAM_STR, 20);
+        $insert->bindParam(':email',$email,PDO::PARAM_STR, 50);
+        $insert->bindParam(':password',$password,PDO::PARAM_STR, 50);
+
+        $insert->execute();
+    }
 }
