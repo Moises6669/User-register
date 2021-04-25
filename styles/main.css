@@ -1,0 +1,108 @@
+body {
+    background-color   : #f8edeb;
+    /* background-color: ·#EC3654; */
+}
+
+* {
+    margin : 0%;
+    padding: 0%;
+}
+
+.container {
+    border          : solid rgb(155, 144, 144) 2px;
+    color           : white;
+    width           : 600px;
+    height          : 450px;
+    display         : flex;
+    margin-left     : auto;
+    margin-right    : auto;
+    background-color: #EC3654;
+    align-items     : center;
+    justify-content : center;
+    flex-direction  : column;
+    margin-top      : 10%;
+    padding         : 10PX;
+}
+
+h2 {
+    text-align : center;
+    font-weight: 700;
+    color      : #FFf;
+    font-weight: 700;
+    font-size  : 4em;
+    margin     : 0;
+    padding    : 0 20px;
+}
+
+
+form {
+    display       : flex;
+    flex-direction: column;
+    width         : 100%;
+    height        : 100%;
+    padding       : 0 20px 20px 20px;
+    margin-bottom : 10px;
+    box-sizing    : border-box;
+
+}
+
+form input {
+    color       : white;
+    box-shadow  : none;
+    transform   : translateX(0);
+    background  : rgba(0, 0, 0, 0.2);
+    border      : none;
+    outline     : none;
+    box-sizing  : border-box;
+    height      : 50px;
+    width       : 100%;
+    margin      : 10px 0;
+    padding     : 0 10px;
+    border-width: 0;
+}
+
+.enviar {
+    background-color: #FFF;
+    font-family     : 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color           : #f72f4e;
+    font-size       : 200%;
+    height          : 80px;
+    box-shadow      : 0 5px rgba(0, 0, 0, 0.5);
+    transition      : all 0.1s, transform 0s 0.6s;
+}
+
+::-webkit-input-placeholder {
+    /* Safari, Chrome and Opera */
+    color    : rgba(255, 255, 255, 0.8);
+    font-size: 90%;
+}
+
+/* Firefox 18- */
+:-moz-placeholder {
+    color    : rgba(255, 255, 255, 0.8);
+    font-size: 90%;
+}
+
+/* Firefox 19+ */
+::-moz-placeholder {
+    color    : rgba(255, 255, 255, 0.8);
+    font-size: 90%;
+}
+
+/* IE 10+ */
+:-ms-input-placeholder {
+    color    : rgba(255, 255, 255, 0.8);
+    font-size: 90%;
+}
+
+/* Edge */
+::-ms-input-placeholder {
+    color    : rgba(255, 255, 255, 0.8);
+    font-size: 90%;
+}
+
+/* Default */
+:placeholder-shown {
+    color    : rgba(255, 255, 255, 0.8);
+    font-size: 90%;
+}
