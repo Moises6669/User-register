@@ -1,76 +1,63 @@
 <?php
 
-//
 require "databaseconnect.php";
 
+// database connection and tables 
 $querys = new Conexiones();
-
-$table = "USUARIOS";
 
 $querys->connect();
 
-$querys->QueryTable('select EMAIL from USUARIOS');
+$table = "USUARIOS";
 
-// if ($result) {
-//     while ($row = mysqli_fetch_array($result)) {
-//         $name = $row["PASSWORD"];
-//         echo "Nombre: ".$name."br/>";
-//     }
-// }
-
-//Validacion del Signup
+//error and message handling
 $aErrores = array();
-$aMensajes = array();
+$aMenssages = array();
 
-
+//form
 $name = $_POST['name'];
 $email = $_POST['email'];
 $password = $_POST['password'];
 
-$querys->NewUser($name,$email,$password);
+if (!empty($_POST)) {
 
-// if (!empty($_POST)) {
-    
-  
+    if (isset($name) && isset($email) && isset($password)) {
 
-//     if (isset($name) && isset($email) && isset($password)) {
+        if (empty($_POST['name'])) {
+            $aErrores[] = "Debe especificar el nombre";
+        } else {
+            $aMensajes[] = "Nombre: [" . $_POST['name'] . "]";
+        }
 
-//         if (empty($_POST['name'])) {
-//             $aErrores[] = "Debe especificar el nombre";
-//         } else {
-//             $aMensajes[] = "Nombre: [" . $_POST['name'] . "]";
-//         }
+        if (empty($_POST['email'])) {
+            $aErrores[] = "Debe ingresar un email";
+        } else {
+            $aMensajes[] = "Nombre: [" . $_POST['email'] . "]";
+        }
+        if (empty($_POST['password'])) {
+            $aErrores[] = "Debe ingresar una contraseña";
+        } else {
+            $aMensajes[] = "Nombre: [" . $_POST['password'] . "]";
+        }
 
-//         if (empty($_POST['email'])) {
-//             $aErrores[] = "Debe ingresar un email";
-//         } else {
-//             $aMensajes[] = "Nombre: [" . $_POST['email'] . "]";
-//         }
-//         if (empty($_POST['password'])) {
-//             $aErrores[] = "Debe ingresar una contraseña";
-//         } else {
-//             $aMensajes[] = "Nombre: [" . $_POST['password'] . "]";
-//         }
-//     }
+        if (!empty($name) && !empty($email) && !empty($password)) {
+            $querys->NewUser($name, $email, $password);
+        }
+    }
+} else {
+    echo '<p>No se obtuvieron los datos</p>';
+}
 
+if (count($aErrores)) {
+    // echo "<p>ERRORES ENCONTRADOS:</p>";
 
-
-// } else {
-//     echo '<p>No se obtuvieron los datos</p>';
-// }
-
-// if (count($aErrores)) {
-//     // echo "<p>ERRORES ENCONTRADOS:</p>";
-
-//     for ($contador = 0; $contador < count($aErrores); $contador++) {
-//         // echo $aErrores[$contador] . "</br>";
-//     }
-// } else {
-//     for ($contador = 0; $contador < count($aMensajes); $contador++) {
-//         // echo $aMensajes[$contador] . "</br>";
-//     }
-// }
-
+    for ($contador = 0; $contador < count($aErrores); $contador++) {
+        // echo $aErrores[$contador] . "</br>";
+    }
+} else {
+    for ($contador = 0; $contador < count($aMensajes); $contador++) {
+        // echo $aMensajes[$contador] . "</br>";
+    }
+}
 ?>
 
 <!DOCTYPE html>

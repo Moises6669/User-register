@@ -11,43 +11,41 @@ class Conexiones
     {
 
         try {
-            $this->conexion = new PDO(
-                "mysql:host=$this->hostname;
-                dbname=$this->dbName",
-                $this->user,
-                ""
-            );
-            echo "Connected to $this->dbName at $this->hostname successfully.";
+            $this->conexion = new PDO("mysql:host=$this->hostname; dbname=$this->dbName", $this->user, "");
         } catch (PDOException $err) {
-
             die("Could not connect to the database  $this->dbName :" . $err->getMessage());
         }
     }
 
-    public function QueryTable(string $query)
+    public function AllTable()
     {
-         $sql = $this->conexion->query($query);
+        $query = "SELECT * FROM USUARIOS";
 
-         $arrDatos = $sql->fetchALL(PDO::FETCH_ASSOC);
+        $sql = $this->conexion->query($query);
 
-         foreach ($arrDatos as $muestra) {
-           
-            $name  = $muestra["EMAIL"];
+        //la forma en que se obtenedran los datos
+        $arrDatos = $sql->fetchALL(PDO::FETCH_ASSOC);
 
-            echo "<p>$name</p>";
-         }
-         
+        foreach ($arrDatos as $muestra) {
+            $name  = $muestra["NAME"];
+            $email = $muestra["EMAIL"];
+        }
     }
 
-    public function NewUser(string $name, string $email, string $password)
+    public function NewUser($name, $email, $password)
     {
-        $query = "INSERT INTO USUARIOS (NOMBRE,EMAIL,PASSWORD) VALUES (:name,:email,:password)";
+        $sql = "INSERT INTO USUARIOS (NOMBRE,EMAIL,PASSWORD) VALUES (:name,:email,:password)";
 
-        $insert = $this->conexion->prepare($query);
+        $insert = $this->conexion->prepare($sql);
 
-        $insert->bindParam(':name',$name,PDO::PARAM_STR, 20);
-        $insert->bindParam(':email',$email,PDO::PARAM_STR, 50);
-        $insert->bindParam(':password',$password,PDO::PARAM_STR, 50);
+        $password = password_hash(
+            base64_encode(hash('sha256', $password, true)),
+            PASSWORD_DEFAULT
+        );
+
+        $insert->bindParam(':name', $name, PDO::PARAM_STR, 20);
+        $insert->bindParam(':email', $email, PDO::PARAM_STR, 50);
+        $insert->bindParam(':password', $password);
 
         $insert->execute();
     }
