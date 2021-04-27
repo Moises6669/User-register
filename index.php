@@ -68,24 +68,28 @@ if (count($aErrores)) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./styles/main.css">
+
+     <script src="./js/signup.js" > </script>
     <title>Formulario</title>
 </head>
 
 <body>
     <div class="container">
         <h2>Registrate</h2>
-        <form action="index.php" method="POST">
+        <form action="index.php" method="POST" id="signup">
 
-            <input placeholder="nombre" type="text" name="name">
+            <input id="name" placeholder="nombre" type="text" name="name">
 
-            <input placeholder="email" type="text" name="email">
+            <input id="email" placeholder="email" type="text" name="email">
 
-            <input placeholder="contraseña" type="password" name="password">
+            <input id="password" placeholder="contraseña" type="password" name="password">
 
-            <input class="enviar" type="submit" value="ACEPTAR">
+            <input id="aceptar" class="enviar" type="submit" value="ACEPTAR">
 
         </form>
     </div>
+
+   
 </body>
 
 </html>
