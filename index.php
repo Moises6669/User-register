@@ -22,41 +22,12 @@ if (!empty($_POST)) {
 
     if (isset($name) && isset($email) && isset($password)) {
 
-        if (empty($_POST['name'])) {
-            $aErrores[] = "Debe especificar el nombre";
-        } else {
-            $aMensajes[] = "Nombre: [" . $_POST['name'] . "]";
-        }
-
-        if (empty($_POST['email'])) {
-            $aErrores[] = "Debe ingresar un email";
-        } else {
-            $aMensajes[] = "Nombre: [" . $_POST['email'] . "]";
-        }
-        if (empty($_POST['password'])) {
-            $aErrores[] = "Debe ingresar una contraseña";
-        } else {
-            $aMensajes[] = "Nombre: [" . $_POST['password'] . "]";
-        }
-
         if (!empty($name) && !empty($email) && !empty($password)) {
             $querys->NewUser($name, $email, $password);
         }
     }
 } else {
     echo '<p>No se obtuvieron los datos</p>';
-}
-
-if (count($aErrores)) {
-    // echo "<p>ERRORES ENCONTRADOS:</p>";
-
-    for ($contador = 0; $contador < count($aErrores); $contador++) {
-        // echo $aErrores[$contador] . "</br>";
-    }
-} else {
-    for ($contador = 0; $contador < count($aMensajes); $contador++) {
-        // echo $aMensajes[$contador] . "</br>";
-    }
 }
 ?>
 
@@ -69,14 +40,19 @@ if (count($aErrores)) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./styles/main.css">
 
-     <script src="./js/signup.js" > </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
+
+    <script src="./js/signup.js"> </script>
+
+
     <title>Formulario</title>
 </head>
 
 <body>
     <div class="container">
         <h2>Registrate</h2>
-        <form action="index.php" method="POST" id="signup">
+        <form action="index.php" method="POST" id="signup" name="signup">
 
             <input id="name" placeholder="nombre" type="text" name="name">
 
@@ -89,7 +65,7 @@ if (count($aErrores)) {
         </form>
     </div>
 
-   
+
 </body>
 
 </html>
