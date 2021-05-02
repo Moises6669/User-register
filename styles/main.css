@@ -1,5 +1,5 @@
 body {
-    background-color   : #f8edeb;
+    background-color   : #edf2f4;
     /* background-color: ·#EC3654; */
 }
 
@@ -7,6 +7,8 @@ body {
     margin : 0%;
     padding: 0%;
 }
+
+
 
 .container {
     border          : solid rgb(155, 144, 144) 2px;
@@ -105,4 +107,22 @@ form input {
 :placeholder-shown {
     color    : rgba(255, 255, 255, 0.8);
     font-size: 90%;
+}
+
+.emailexist {
+    display         : flex;
+    margin-left     : auto;
+    margin-right    : auto;
+    justify-content : center;
+    margin-top      : 20px;
+    border-radius   : 26px 26px 26px 26px;
+    background-color: #F2DEDE;
+    width           : 500px;
+}
+
+.emailexist p {
+    color      : #B87A92;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size  : 30px;
+
 }

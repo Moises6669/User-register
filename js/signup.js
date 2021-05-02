@@ -1,3 +1,11 @@
+var ocultar = document.getElementsByClassName("emailexist");
+
+if (ocultar.style.display === "none") {
+    ocultar.style.display = "block";
+} else {
+    x.style.display = "none";
+}
+
 $(function () {
 
     $("form[name='signup']").validate({
@@ -39,5 +47,5 @@ $(function () {
         }
     });
 
- 
+
 });

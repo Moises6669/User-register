@@ -38,19 +38,21 @@ if (!empty($_POST)) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./styles/main.css">
-
+    
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
-
+    
     <script src="./js/signup.js"> </script>
+    
+    <link rel="stylesheet" href="./styles/main.css">
 
+    <link rel="stylesheet" href="./styles/normalize.css">
 
     <title>Formulario</title>
 </head>
 
 <body>
-    <div class="container">
+    <div  class="container">
         <h2>Registrate</h2>
         <form action="index.php" method="POST" id="signup" name="signup">
 

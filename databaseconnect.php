@@ -34,19 +34,38 @@ class Conexiones
 
     public function NewUser($name, $email, $password)
     {
-        $sql = "INSERT INTO USUARIOS (NOMBRE,EMAIL,PASSWORD) VALUES (:name,:email,:password)";
+        $queryEmail = "SELECT COUNT(*) FROM USUARIOS WHERE EMAIL=:email";
 
-        $insert = $this->conexion->prepare($sql);
+        $searchEmail = $this->conexion->prepare($queryEmail);
 
-        $password = password_hash(
-            base64_encode(hash('sha256', $password, true)),
-            PASSWORD_DEFAULT
-        );
+        $searchEmail->bindParam(":email", $email);
 
-        $insert->bindParam(':name', $name, PDO::PARAM_STR, 20);
-        $insert->bindParam(':email', $email, PDO::PARAM_STR, 50);
-        $insert->bindParam(':password', $password);
+        $searchEmail->execute();
 
-        $insert->execute();
+        $emailExist =  $searchEmail->fetchColumn();
+
+        if ($emailExist > 0) {
+
+            echo "<div class='emailexist'>
+                    <p>Este correo ya existe</p>
+            </div> ";
+
+        } else {
+
+            $sql = "INSERT INTO USUARIOS (NOMBRE,EMAIL,PASSWORD) VALUES (:name,:email,:password)";
+
+            $insert = $this->conexion->prepare($sql);
+
+            $password = password_hash(
+                base64_encode(hash('sha256', $password, true)),
+                PASSWORD_DEFAULT
+            );
+
+            $insert->bindParam(':name', $name, PDO::PARAM_STR, 20);
+            $insert->bindParam(':email', $email, PDO::PARAM_STR, 50);
+            $insert->bindParam(':password', $password);
+
+            $insert->execute();
+        }
     }
 }
