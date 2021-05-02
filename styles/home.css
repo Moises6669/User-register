@@ -1,0 +1,76 @@
+body {
+    background-color: #5ED785;
+}
+
+.container {
+    display        : flex;
+    justify-content: center;
+    margin-top     : 13%;
+    color          : white;
+    font-size      : 30px;
+}
+
+.cont-buttons {
+    display        : flex;
+    flex-direction : column;
+    justify-content: center;
+    margin-left    : auto;
+    margin-right   : auto;
+    width          : 200px;
+    height         : 200px;
+    text-decoration: none;
+
+}
+
+.cont-buttons button {
+    /* text-shadow          : 0px 1px rgba(0, 0, 0, 0.2); */
+    text-align           : center;
+    font-family          : 'Helvetica Neue', Helvetica, sans-serif;
+    font-size            : 18px;
+    color                : #FFF;
+    padding              : 7px 50px;
+    background-color     : white;
+    color                : black;
+    height               : 50px;
+    white-space          : nowrap;
+    -webkit-border-radius: 5px;
+    -moz-border-radius   : 5px;
+    border-radius        : 20px;
+    line-height          : normal;
+    overflow             : visible;
+    border               : none;
+    margin               : 10px 5px;
+    -webkit-transition   : all 0.2s ease-in-out;
+    -ms-transition       : all 0.2s ease-in-out;
+    -moz-transition      : all 0.2s ease-in-out;
+    -o-transition        : all 0.2s ease-in-out;
+    transition           : all 0.2s ease-in-out;
+}
+
+.registro {
+    background: #f5cb5c;
+    box-shadow: 0px 5px 0px 0px #f7b267;
+}
+
+.registro:hover {
+    background: #f5cb5c;
+    color     : white;
+}
+
+.registro:active {
+    box-shadow: 0px 2px 0px 0px #f7b267;
+}
+
+.secion {
+    background: #3498DB;
+    box-shadow: 0px 5px 0px 0px #2980B9;
+}
+
+.secion:hover {
+    background: #39a0e5;
+    color     : white;
+}
+
+.secion:active {
+    box-shadow: 0px 2px 0px 0px #2980B9;
+}
