@@ -14,10 +14,8 @@
         <h1>AGENDA DE CONTACTO</h1>
     </div>
     <div class="cont-buttons">
-         <button type="submit" name="signup" class="registro" onclick="location='signup.php'">Registrate</button>
-         <button type="submit" name="login" class="secion">Inicia secion</button>
+        <button type="submit" name="signup" class="registro" onclick="location='signup.php'">Registrate</button>
+        <button type="submit" name="login" class="secion" onclick="location='login.php'">iniciar sesión</button>
     </div>
 </body>
-
 </html>
-

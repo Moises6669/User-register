@@ -3,9 +3,7 @@
 require "databaseconnect.php";
 
 // database connection and tables 
-$querys = new Conexiones();
-
-$querys->connect();
+$querys = new Conection();
 
 $table = "USUARIOS";
 
