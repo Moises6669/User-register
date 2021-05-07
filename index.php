@@ -11,7 +11,7 @@
 
 <body>
     <div class="container">
-        <h1>AGENDA DE CONTACTO</h1>
+        <h1>WELCOME</h1>
     </div>
     <div class="cont-buttons">
         <button type="submit" name="signup" class="registro" onclick="location='signup.php'">Registrate</button>
