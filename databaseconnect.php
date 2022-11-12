@@ -39,7 +39,6 @@ class Conection
 
         $sql = $this->conexion->query($query);
 
-        //la forma en que se obtenedran los datos
         $arrDatos = $sql->fetchALL(PDO::FETCH_ASSOC);
 
         foreach ($arrDatos as $muestra) {
@@ -84,7 +83,6 @@ class Conection
 
     public function login_users($email, $password)
     {
-        //Comprobar si un usuario existe
         $sql = "SELECT * FROM USUARIOS WHERE EMAIL =:email LIMIT 1 ";
 
         $find_user =  $this->conexion->prepare($sql);
@@ -94,7 +92,7 @@ class Conection
         $find_user->execute();
 
         if ($find_user->rowCount() == 1) {
-            //existe
+    
             $user = $find_user->fetch(PDO::FETCH_ASSOC);
 
             $hash = $user["PASSWORD"];
@@ -104,7 +102,7 @@ class Conection
             } else {
                 echo 'FAIL LOGIN';
             }
-            // echo 'Existe el usuario';
+
         } else {
             echo 'no estas registrado';
         }

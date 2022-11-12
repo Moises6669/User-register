@@ -2,12 +2,10 @@
 
 require "databaseconnect.php";
 
-// database connection and tables 
 $querys = new Conection();
 
 $table = "USUARIOS";
 
-//error and message handling
 $aErrores = array();
 $aMenssages = array();
 
@@ -19,8 +17,6 @@ if (!empty($_POST)) {
             $querys->NewUser($_POST['name'], $_POST['email'],  $_POST['password']);
         }
     }
-} else {
-    // echo '<p>No se obtuvieron los datos</p>';
 }
 ?>
 

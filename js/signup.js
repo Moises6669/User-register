@@ -14,8 +14,6 @@ $(function () {
             name: "required",
             email: {
                 required: true,
-                // Specify that email should be validated
-                // by the built-in "email" rule
                 email: true
             },
             password: {
@@ -23,7 +21,6 @@ $(function () {
                 minlength: 5
             }
         },
-        // Specify validation error messages
         messages: {
 
             name: "Por favor, introduzca su nombre",
